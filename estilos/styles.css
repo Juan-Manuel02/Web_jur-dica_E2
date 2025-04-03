@@ -1,17 +1,379 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;500&display=swap');
 
+:root {
+    --primary-color: #1a2942;    /* Azul marino oscuro */
+    --secondary-color: #2c4c7c;   /* Azul medio */
+    --accent-color: #c0a062;      /* Dorado elegante */
+    --text-color: #333333;        /* Texto principal */
+    --text-light: #ffffff;        /* Texto claro */
+    --bg-light: white;          /* Fondo claro */
+    --bg-dark: #121921;           /* Fondo oscuro */
+    --error-color: #8b0000;       /* Rojo oscuro para errores */
+    --success-color: #2e7d32;     /* Verde para éxito */
+    --form-bg: rgba(255, 255, 255, 0.9); /* Fondo de formularios */
+    --shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --shadow-strong: 0 10px 25px rgba(0, 0, 0, 0.25);
+    --transition: all 0.3s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Merriweather', Georgia, serif;
-    font-weight: 700;
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-body, p, span, a, input, button, label {
-    font-family: 'Roboto', Arial, sans-serif;
-    font-weight: 400;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+/* links */
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* Header */
+header {
+    background-color: var(white);
+    color: var(--text-light);
+    padding: 1rem 0;
+    position: relative;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    padding: 1rem;
+    text-align: center;
+}
+
+.logo img {
+    max-width: 240px;
+    height: auto;
+}
+
+
+.imagen-header {
+    width: 100%;
+    background-image: linear-gradient(rgba(26, 41, 66, 0.7), rgba(26, 41, 66, 0.7)), url('../assets/header-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.frase-latin {
+    font-family: 'Merriweather', serif;
+    font-size: 2.2rem;
+    color: var(--text-light);
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Navegación */
+.navegacion {
+    width: 100%;
+    background-color: var(--secondary-color);
+    padding: 0.5rem 0;
+}
+
+.navegacion ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.navegacion li {
+    margin: 0 1rem;
+}
+
+.navegacion a {
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.navegacion a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos de Formularios - Inspirado en HBO Max 2025 */
+.login-form, 
+form {
+    background-color: var(--form-bg);
+    border-radius: 10px;
+    box-shadow: var(--shadow-strong);
+    padding: 2.5rem;
+    
+    width: 90%;
+    margin: 2rem auto;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.login-form::before, 
+form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+}
+
+.login-form h2, 
+form h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(44, 76, 124, 0.2);
+}
+
+form button[type="submit"] {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 1.5rem 0;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+form button[type="submit"]:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+form button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Efecto de onda al hacer clic */
+form button[type="submit"]::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+form button[type="submit"]:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(30, 30);
+        opacity: 0;
+    }
+}
+
+.recoradar-sesion,
+form input[type="checkbox"] + label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+form input[type="checkbox"] {
+    margin-right: 0.5rem;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+form input[type="checkbox"]:checked {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+form input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    top: -1px;
+    left: 3px;
+}
+
+.politicas-link {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+}
+
+.politicas-boton {
+    display: block;
+    text-align: center;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 6px;
+    transition: var(--transition);
+}
+
+.politicas-boton:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+
+/* Estilos para contenido principal */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+main h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+main p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    position: relative;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navegacion ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .navegacion li {
+        margin: 0.5rem 0;
+    }
+    
+    .frase-latin {
+        font-size: 1.5rem;
+    }
+    
+    .login-form, 
+    form {
+        padding: 1.5rem;
+    }
+}
+
+/* Animaciones y transiciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+form {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Estilos para mensajes de error o éxito */
+.error-message {
+    color: var(--error-color);
+    font-size: 0.9rem;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+}
+
+.success-message {
+    color: var(--success-color);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 1rem;
 }
