@@ -19,7 +19,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
@@ -62,7 +61,6 @@ a:hover {
 header {
     background-color: var(white);
     color: var(--text-light);
-    padding: 1rem 0;
     position: relative;
     box-shadow: var(--shadow);
     display: flex;
@@ -126,7 +124,38 @@ header {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Estilos de Formularios - Inspirado en HBO Max 2025 */
+.indice {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.indice h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.indice ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.indice ul li {
+    margin: 10px 0;
+}
+
+.indice ul li a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.indice ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos de Formularios */
 .login-form, 
 form {
     background-color: var(--form-bg);
@@ -272,7 +301,7 @@ form input[type="checkbox"]:checked {
 
 form input[type="checkbox"]:checked::after {
     content: '✓';
-    position: absolute;
+    position: relative;
     color: white;
     font-size: 14px;
     top: -1px;
@@ -328,7 +357,6 @@ main p {
     color: var(--text-light);
     text-align: center;
     padding: 1.5rem;
-    margin-top: 2rem;
     position: relative;
 }
 
